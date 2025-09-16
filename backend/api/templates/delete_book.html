@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delete Book</title>
+  <link rel="stylesheet" href="{% static 'css/delete_book.css' %}" />
+</head>
+
+<body>
+  <section id="deleteBookSection">
+    <h2>Delete Book</h2>
+
+    <form id="deleteBookForm" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="bookSelect">Select Book to Delete:</label>
+        <select id="bookSelect" name="bookID" required>
+          <option value="">-- Select a Book --</option>
+          <!-- Add more options dynamically from your database -->
+        </select>
+      </div>
+
+      <div id="bookDetails" class="book-details" style="display: none;">
+        <!-- Book details will be populated here -->
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="delete-button">Delete Book</button>
+        <button type="button" class="cancel-button" id="cancelButton">Back</button>
+      </div>
+    </form>
+  </section>
+  
+  <script>
+      // Pass URLs to JavaScript
+      const adminDashboardUrl = "{% url 'admin_dashboard' %}";
+  </script>
+  <script type="module" src="{% static 'js/delete_book.js' %}"></script>
+</body>
+</html>

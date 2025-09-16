@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>View Books Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/viewBooks.css' %}">
+</head>
+
+<body {% if user.is_superuser %}class="admin-user"{% endif %}>
+  <section id="viewBooksSection">
+    <h2>List of Available Books</h2>
+
+    <!-- Search Form -->
+    <div class="search-container">
+      <form method="GET" action="{% url 'view_books' %}" class="search-form">
+        <input type="text" name="search" placeholder="Search books..." value="{{ search_query }}">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    {% if error %}
+    <div class="error-message">
+      {{ error }}
+    </div>
+    {% endif %}
+
+    {% if books %}
+    <table id="books-table">
+      <thead>
+        <tr>
+          <th>Book Name</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>ISBN</th>
+          <th>Status</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.category }}</td>
+          <td>{{ book.isbn }}</td>
+          <td>
+            <span class="status-badge {% if book.is_available %}available{% else %}unavailable{% endif %}">
+              {{ book.is_available|yesno:"Available,Borrowed" }}
+            </span>
+          </td>
+          <td>{{ book.description }}</td>
+          <td>
+            {% if book.cover_image %}
+            <img src="{{ book.cover_image }}" alt="{{ book.title }}" class="book-cover">
+            {% else %}
+            <span class="no-image">No Image</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="no-books">
+      {% if search_query %}
+      No books found matching your search.
+      {% else %}
+      No books available in the library.
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <button type="button" class="back-button" id="backButton">Back</button>
+  </section>
+
+  <script>
+      const adminDashboardUrl = "{% url 'admin_dashboard' %}";
+    const userDashboardUrl = "{% url 'user_dashboard' %}";
+  </script>
+  <script type="module" src="{% static 'js/viewBooks.js' %}"></script>
+</body>
+
+</html>

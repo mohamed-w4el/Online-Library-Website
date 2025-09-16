@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+    <head>
+        <title>login-Page</title>
+        <link rel ='stylesheet' href="{% static 'css/style.css' %}">
+
+    </head>
+    <body>
+        <div class="container">
+            <form id="loginForm">
+                <h1>Login</h1>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                <div>
+                    <div class="auth-buttons">
+                        <button type="submit" class="btn login-button" id="loginA">Login</button>
+                    </div>
+                </div>
+                <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+                <p id="messageArea" class="message"></p>
+            </form>
+        </div>
+        
+        <script>
+            // Pass URLs to JavaScript
+            const userDashboardUrl = "{% url 'user_dashboard' %}";
+            const adminDashboardUrl = "{% url 'admin_dashboard' %}";
+            const homeUrl = "{% url 'home' %}";
+        </script>
+        <!-- <script type="module" src="{% static 'js/login.js' %}"></script> -->
+        <script type="module" src="{% static 'js/auth.js' %}"></script>
+    </body>
+</html>

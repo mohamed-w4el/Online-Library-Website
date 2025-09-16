@@ -1,0 +1,75 @@
+body {
+    background-image: url('../images/back3.png');
+    background-size: 40%;
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#viewBooksSection {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#viewBooksSection h2 {
+    text-align: center;
+    color: #b5472f;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    vertical-align: top;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table td h2 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}
+
+table img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+}
+
+.back-button {
+    padding: 10px 20px;
+    background-color: #999;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+
+.back-button:hover {
+    background-color: #777;
+}

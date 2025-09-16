@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up!</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        
+    </head>
+    <body>
+        <div class="container">
+            <form id="signUpForm">
+                {% csrf_token %}
+                <h1>Sign Up</h1>
+                <div>
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                    </br>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                    </br>
+                    <label for="username">Username:</label>
+                    <input type ="text" id="username" name="username" required>
+                    </br>
+                    <label for="userEmail">Email:</label>
+                    <input type="email" id="userEmail" name="email" required>
+                    </br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    </br>
+                    <label for="password">Confirm Password:</label>
+                    <input type="password" id="Cpassword" name="passwordConfirm" required>
+                </div>
+                <input type="hidden" name="role" value="user">
+                <div>
+                    <div class="auth-buttons">
+                        <button type="submit" class="btn signup-button" id="signupbtn">Sign Up</button>
+                    </div>
+                </div>
+                <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                <p id="messageArea" class="message"></p>
+            </form>
+        </div>
+        <script>
+            // Pass URLs to JavaScript
+            const loginUrl = "{% url 'login' %}";
+        </script>
+        <script type="module" src="{% static 'js/signup.js' %}"></script>
+        <script type="module" src="{% static 'js/auth.js' %}"></script>
+    </body>
+</html>

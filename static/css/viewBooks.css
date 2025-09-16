@@ -1,0 +1,178 @@
+body {
+    /* background-image: url('../images/back3.png'); */
+    background-size: 40%;
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #f5f5dc;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#viewBooksSection {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#viewBooksSection h2 {
+    text-align: center;
+    color: #b5472f;
+    margin-bottom: 30px;
+}
+
+/* Search Form Styles */
+.search-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.search-form button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #45a049;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+table td h2 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+}
+
+table img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.available {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-badge.unavailable {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* Book Cover Styles */
+.book-cover {
+    width: 50px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-image {
+    color: #999;
+    font-size: 12px;
+}
+
+/* Action Button Styles */
+.view-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.view-btn:hover {
+    background-color: #1976D2;
+}
+
+/* Error and No Books Message Styles */
+.error-message {
+    color: #c62828;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.no-books {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Back Button Styles */
+.back-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+}

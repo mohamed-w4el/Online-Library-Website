@@ -1,0 +1,85 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrowed Books</title>
+  <link rel="stylesheet" href="{% static 'css/borrowed_books.css' %}">
+  <link rel="stylesheet" href="{% static 'css/user-dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'css/search.css' %}">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f7f1;
+    }
+  </style>
+</head>
+<body>
+  <header id="navigation-bar">
+    <nav>
+        <a href="{% url 'user_dashboard' %}">Home</a>
+        <a href="{% url 'book_details' %}">Browse</a>
+        <a href="{% url 'borrowed_books' %}"><strong>My Books</strong></a>
+        <a href="{% url 'home' %}" id="logout-link" style="background-color: red; padding: 7px; border-radius: 7px;">Logout</a>
+    </nav>
+    <search>
+      <form onsubmit="handleSearch(event)">
+          <input type="text" id="searchInput" placeholder="Search for books or authors...">
+          <button type="submit">Search</button>
+      </form>
+  </search>
+  </header>
+  <div class="box">
+    <h2>Borrowed Books</h2>
+    <ul class="book-list" id="borrowedBooksList">
+      {% if borrowings %}
+        {% for record in borrowings %}
+          {% if record.status == 'BORROWED' or record.status == 'OVERDUE' %}
+          <li class="book-item" data-id="{{ record.id }}">
+            <div class="book-info">
+              <h3 class="book-title">{{ record.book.title }}</h3>
+              <p class="book-author">Author: {{ record.book.author }}</p>
+              <p class="borrow-date">Borrowed on: {{ record.borrow_date|date:'M d, Y' }}</p>
+              <p class="due-date">Due date: {{ record.due_date|date:'M d, Y' }}</p>
+              {% if record.fine_amount > 0 %}
+                <p class="fine fine-amount">Fine: ${{ record.fine_amount }}</p>
+              {% endif %}
+              {% if record.status == 'OVERDUE' %}
+                <p class="overdue">OVERDUE!</p>
+              {% endif %}
+              <p class="status" style="display:none;">{{ record.status }}</p>
+            </div>
+            {% if record.status == 'BORROWED' or record.status == 'OVERDUE' %}
+              <form method="POST" action="/return-book/" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="borrowing_id" value="{{ record.id }}">
+                <button type="submit" class="return-button">Return Book</button>
+              </form>
+            {% endif %}
+          </li>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      
+      {% if not borrowings or not borrowings|length %}
+        <li class="book-item">There are no borrowed books</li>
+      {% endif %}
+    </ul>
+    <a href="{% url 'user_dashboard' %}" class="return-button">← Return to Dashboard</a>
+  </div>
+
+  <footer class="footer">
+      &copy; 2025 Online Library. All rights reserved.
+  </footer>
+
+  <script>
+      // Pass URLs to JavaScript
+      const bookDetailsUrl = "{% url 'book_details' %}";
+      const borrowedBooksUrl = "{% url 'borrowed_books' %}";
+      const homeUrl = "{% url 'home' %}";
+      const userDashboardUrl = "{% url 'user_dashboard' %}";
+  </script>
+  <script type="module" src="{% static 'js/borrowed_books.js' %}"></script>
+  <script type="module" src="{% static 'js/auth.js' %}"></script>
+</body>
+</html>

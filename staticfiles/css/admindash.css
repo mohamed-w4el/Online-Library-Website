@@ -1,0 +1,70 @@
+body {
+    background-image: url('../images/back3.png');
+    background-size: 40%;
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 450px;
+    background: bisque;
+}
+
+.container h1 {
+    font-family: arial, serif;
+    font-size: 60px;
+    text-align: center;
+}
+
+.afterLoginMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.container button {
+    font-family: arial, serif;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    background-color: #e8a413;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.container button:hover {
+    background-color: #da9203;
+    transition: background-color 0.5s ease;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}

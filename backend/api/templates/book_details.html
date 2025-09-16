@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Books</title>
+    <link rel="stylesheet" href="{% static 'css/book_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+</head>
+<body>
+    <div class="content">
+    <header id="navigation-bar">
+        <nav>
+            <a href="{% url 'user_dashboard' %}">Home</a>
+            <a href="{% url 'book_details' %}"><strong>Browse</strong></a>
+            <a href="{% url 'borrowed_books' %}">My Books</a>
+            <a href="{% url 'home' %}" id="logout-link" style="background-color: red; padding: 7px; border-radius: 7px;">Logout</a>
+        </nav>
+        <search>
+            <form onsubmit="handleSearch(event)">
+                    <input type="text" id="searchInput" placeholder="Search for books or authors..." value="{{ search_query }}">
+                <button type="submit">Search</button>
+            </form>
+        </search>
+    </header>
+
+    <div id="books-container">
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            {% if books_by_category %}
+                <div class="book-list">
+                    {% for category, books in books_by_category.items %}
+                        {% for book in books %}
+                        <div class="book" data-id="{{ book.id }}">
+                            {% if book.cover_image %}
+                            <img src="{{ book.cover_image }}" alt="{{ book.title }}">
+                            {% else %}
+                            <div class="no-cover">No Cover</div>
+                            {% endif %}
+                            <div class="book-info">
+                                <h3 class="book-title">{{ book.title }}</h3>
+                                <p class="book-author">by {{ book.author }}</p>
+                                <p class="{% if book.is_available %}available{% else %}unavailable{% endif %}">
+                                    {{ book.is_available|yesno:"Available,Borrowed" }}
+                                </p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="no-books">
+                    No books available in the library.
+                </div>
+            {% endif %}
+    </div>
+
+        <footer class="footer">
+            &copy; 2025 Online Library. All rights reserved.
+        </footer>
+
+        <script>
+            const borrowedBooksUrl = "{% url 'borrowed_books' %}";
+            const homeUrl = "{% url 'home' %}";
+            const userDashboardUrl = "{% url 'user_dashboard' %}";
+        </script>
+        <script type="module" src="{% static 'js/book_details.js' %}"></script>
+        <script type="module" src="{% static 'js/search.js' %}"></script>
+        <script type="module" src="{% static 'js/auth.js' %}"></script>
+    </div>
+    </body>
+</html>

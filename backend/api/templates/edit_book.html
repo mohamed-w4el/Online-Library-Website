@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="{% static 'css/edit_book.css' %}">
+</head>
+<body>
+    <section id="editBookSection">
+        <h2>Edit Book</h2>
+        <form id="editBookForm" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="bookSelect">Select Book to Edit:</label>
+                <select id="bookSelect" name="bookID" required>
+                    <option value="">-- Select a Book --</option>
+                </select>
+            </div>
+            <input type="hidden" name="id" id="bookId">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="cover_image">Cover Image:</label>
+                <div id="currentImage" class="current-image" style="display: none;">
+                    <img src="" alt="Current cover" class="preview-image">
+                    <p>Current cover image</p>
+                </div>
+                <input type="file" id="cover_image" name="cover_image" accept="image/*">
+                <p class="help-text">Leave empty to keep current image</p>
+            </div>
+            <div class="form-group">
+                <label for="is_available">Status:</label>
+                <select id="is_available" name="is_available" disabled>
+                    <option value="true">Available</option>
+                    <option value="false">Borrowed</option>
+                </select>
+                <p class="help-text">Status cannot be changed directly. It updates automatically based on borrowing records.</p>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="save-button">Save Changes</button>
+                <button type="button" class="cancel-button" id="cancelButton">Back</button>
+            </div>
+        </form>
+    </section>
+    <script>
+        const adminDashboardUrl = "{% url 'admin_dashboard' %}";
+    </script>
+    <script type="module" src="{% static 'js/edit_book.js' %}"></script>
+</body>
+</html>

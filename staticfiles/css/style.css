@@ -1,0 +1,133 @@
+/* Common Styles for Both Pages */
+body {
+    background-image: url('/images/back3.png');
+    background-size: 40%;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #deb887;
+    border-radius: 10px;
+    width: 450px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: Arial, serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+input {
+    height: 35px;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+    min-height: 20px;
+}
+
+/* Button Styles */
+.btn {
+    margin: 15px 0;
+    padding: 12px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.signup-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.signup-button:hover {
+    background-color: #3e9041;
+}
+
+.login-button {
+    background-color: blue;
+    color: #d8e7ff;
+}
+
+.login-button:hover {
+    background-color: #0808ba;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Role Selector Styles */
+.role-selector {
+    margin-bottom: 20px;
+}
+
+select {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: white;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+}

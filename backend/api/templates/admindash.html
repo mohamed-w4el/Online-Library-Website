@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Library</title>
+    <link rel="stylesheet" href="{% static 'css/admindash.css' %}">
+</head>
+
+<body>
+
+
+    <!-- Admin Dashboard Content -->
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+
+        <!-- After Login Menu -->
+        <section class = "afterLoginMenu" style="display: block;">
+            <h2>Welcome, Admin</h2>
+            <p>Select one of the following options:</p>
+            <a href="{% url 'view_books' %}"><button>View Books</button></a>
+            <a href="{% url 'add_book' %}"><button>Add New Book</button></a>
+            <a href="{% url 'edit_book' %}"><button>Edit Book</button></a>
+            <a href="{% url 'delete_book' %}"><button>Delete Book</button></a>
+            <a href="/admin/"><button>Admin Site</button></a>
+            <a href="{% url 'user_dashboard' %}"><button>User Dashboard</button></a>
+            <a href="{% url 'home' %}" id="logout-link" ><button style="background-color: red;">Logout</button></a>
+        </section>
+    </div>
+
+</body>
+
+</html>

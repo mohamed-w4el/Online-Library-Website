@@ -1,0 +1,133 @@
+body {
+    /* background-image: url('../images/back3.png'); */
+    background-size: 40%;
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #f5f5dc;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#editBookSection {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#editBookSection h2 {
+    text-align: center;
+    color: #b5472f;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 8px 0;
+}
+
+.help-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.current-image {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.preview-image {
+    max-width: 200px;
+    max-height: 300px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.save-button,
+.cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.cancel-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Error message styles */
+.error-message {
+    color: #c62828;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Success message styles */
+.success-message {
+    color: #2e7d32;
+    background-color: #e8f5e9;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 20px 0;
+    text-align: center;
+}

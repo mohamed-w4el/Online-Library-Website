@@ -1,0 +1,88 @@
+body {
+    background-image: url('../images/back3.png');
+    background-size: 40%;
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-bar {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-input {
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.book-card {
+    background-color: bisque;
+    border-style: dotted;
+    margin: 30px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.book-img {
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.book-author {
+    font-size: x-large;
+}
+
+.available {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.unavailable {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.auth-buttons .borrow-button {
+    background-color: rgb(190, 70, 18);
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .borrow-button:hover {
+    background-color: rgb(160, 50, 10);
+}
+
+.borrow-button.disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.auth-buttons .buy-button {
+    background-color: rgb(39, 167, 25);
+    color: white;
+}
+
+.auth-buttons .buy-button:hover {
+    background-color: #1c7113;
+}
+
+.book-card .unavailable {
+    text-decoration: line-through;
+}

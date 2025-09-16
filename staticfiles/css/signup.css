@@ -1,0 +1,119 @@
+body {
+    background-image: url('/images/back3.png');
+    background-size: 40%;
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    background-color: #deb887;
+    border-radius: 10px;
+    width: 450px;
+    height: 500px;
+    margin: 90px;
+    padding: 10px;
+}
+
+#signUpForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#signUpForm h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.username {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 312px;
+    gap: 65px;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 312px;
+    gap: 95px;
+}
+
+.password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 312px;
+    gap: 65px;
+}
+
+input {
+    height: 130%;
+    border: none;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.role {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 312px;
+    font-size: 20px;
+    gap: 90px;
+}
+
+.role select {
+    width: 172.6px;
+    height: 26px;
+    border: none;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.role select:focus {
+    outline: none;
+}
+
+.btn_signup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    width: 112px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #4CAF50;
+    color: white;
+    gap: 65px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.btn_signup-button:hover {
+    background-color: #3e9041;
+}
+

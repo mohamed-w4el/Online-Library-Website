@@ -1,0 +1,255 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    /* background-image: url('../images/back3.png'); */
+    background-size: 40%;
+    position: relative;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+#navigation-bar {
+    background-color: #f9be50;
+    max-width: 100%;
+    padding: 20px 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navigation-bar nav a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+}
+
+#navigation-bar nav a:hover {
+    text-decoration: underline;
+}
+
+#navigation-bar nav a:active {
+    color: #ff0000;
+}
+
+#navigation-bar search {
+    justify-content: flex-end;
+}
+
+#navigation-bar search input{
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #b4b4b4e2;
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+#navigation-bar search input:focus {
+    outline: none;
+}
+
+#navigation-bar search button {
+    padding: 10px 15px;
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#navigation-bar search button:hover {
+    background-color: #333333;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin: 2px 0;
+}
+
+.Category h2 {
+    font-size: 24px;
+    margin-left: 5%;
+}
+
+.book-list {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    gap: 10px;
+    margin-left: 5%;
+    scrollbar-width: none;
+}
+
+.book {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 200px;
+    background-color: #dad8d8;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.book img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 8px 8px 10px;
+    white-space: normal;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.book a {
+    text-decoration: none;
+    color: #4a4a4a;
+}
+
+.book a:hover {
+    text-decoration: underline;
+}
+
+/*--------------------------book_info------------------------------*/
+
+.book-info {
+    display: flex;
+    gap: 40px;
+    margin: 100px 20px;
+    padding: 30px;
+    background-color: #f6e7ab;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buy-button,
+.borrow-button {
+    background-color: rgb(190, 70, 18);
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.available {
+    color: #28a745;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.unavailable {
+    color: #dc3545;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.borrow-button.disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.book-info {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: bisque;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.book-cover {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-cover img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.book-meta {
+    padding: 20px;
+}
+
+.book-meta h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.book-meta p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.auth-buttons {
+    margin-top: 20px;
+}
+
+.auth-buttons .borrow-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .borrow-button:hover {
+    background-color: #218838;
+}
+
+/*----------------------footer-------------------------------------*/
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: last baseline;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book Details</title>
+        <link rel="stylesheet" href="{% static 'css/book_info.css' %}">
+        <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    </head>
+    <body>
+        <div class="content">
+            <header id="navigation-bar">
+                <nav>
+                    <a href="{% url 'user_dashboard' %}">Home</a>
+                    <a href="{% url 'book_details' %}">Browse</a>
+                    <a href="{% url 'borrowed_books' %}">My Books</a>
+                    <a href="{% url 'home' %}" id="logout-link" style="background-color: red; padding: 7px; border-radius: 7px;">Logout</a>
+                </nav>
+                <search>
+                    <form onsubmit="handleSearch(event)">
+                        <input type="text" id="searchInput" placeholder="Search for books or authors...">
+                        <button type="submit">Search</button>
+                    </form>
+                </search>
+            </header>
+    
+            <main class="dashboard-content">
+                {% if error %}
+                <div class="error-message">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                {% if book %}
+                <div class="book-info">
+                    <div class="book-cover">
+                        {% if book.cover_image %}
+                        <img class="book-image" src="{{ book.cover_image }}" alt="{{ book.title }}">
+                        {% else %}
+                        <div class="no-cover">No Cover</div>
+                        {% endif %}
+                    </div>
+                    <div class="book-meta">
+                        <h1 class="book-title">{{ book.title }}</h1>
+                        <p class="book-author"><strong>Author:</strong> {{ book.author }}</p>
+                        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+                        <p class="book-category"><strong>Category:</strong> {{ book.category }}</p>
+                        <p><strong>Status:</strong> 
+                            <span class="book-availability {% if book.is_available %}available{% else %}unavailable{% endif %}">
+                                {{ book.is_available|yesno:"Available,Borrowed" }}
+                            </span>
+                        </p>
+                        <p class="book-description"><strong>Description:</strong> {{ book.description }}</p>
+
+                        <div class="auth-buttons">
+                            {% if book.is_available %}
+                                <button type="button" class="borrow-button" id="borrowBookBtn" data-book-id="{{ book.id }}">Borrow Book</button>
+                                <noscript>
+                                    <form method="POST" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action" value="borrow">
+                                        <button type="submit" class="borrow-button">Borrow Book</button>
+                                    </form>
+                                </noscript>
+                            {% else %}
+                                <button class="borrow-button disabled" disabled>Currently Borrowed</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </main>
+        </div>
+        
+        <footer class="footer">
+            &copy; 2025 Online Library. All rights reserved.
+        </footer>
+        
+        <script>
+             // Pass URLs to JavaScript
+             const borrowedBooksUrl = "{% url 'borrowed_books' %}";
+             const homeUrl = "{% url 'home' %}";
+             const userDashboardUrl = "{% url 'user_dashboard' %}";
+             const currentBookId = "{{ book_id }}"; // Pass the book ID from the view
+        </script>
+        <script type="module" src="{% static 'js/book_info.js' %}"></script>
+        <script type="module" src="{% static 'js/search.js' %}"></script>
+        <script type="module" src="{% static 'js/auth.js' %}"></script>
+    </body>
+</html>
